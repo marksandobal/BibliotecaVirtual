@@ -115,6 +115,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ApartadoDeLibros.aspx" />
     <Content Include="bootstrap\css\bootstrap-theme.css" />
     <Content Include="bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="bootstrap\css\bootstrap.css" />
@@ -194,6 +195,13 @@
     <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApartadoDeLibros.aspx.cs">
+      <DependentUpon>ApartadoDeLibros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApartadoDeLibros.aspx.designer.cs">
+      <DependentUpon>ApartadoDeLibros.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BizConextions\BizUsuarios.cs" />
     <Compile Include="Busqueda.aspx.cs">
       <DependentUpon>Busqueda.aspx</DependentUpon>

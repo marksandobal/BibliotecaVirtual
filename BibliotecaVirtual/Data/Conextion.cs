@@ -7,10 +7,19 @@ namespace BibliotecaVirtual.Data
 {
     public class Conextion
     {
-        public string BiBliotecaVirtualConnectionString()
+        public ConectionLocal BiBliotecaVirtualConnectionString()
         {
-            string ConnectionString = "Data Source=DATAWORKS-A;Initial Catalog=BibliotecaVirtual;Integrated Security=True";
-            return ConnectionString;
+            ConectionLocal conecciones = new ConectionLocal();
+
+            conecciones.ConnectionStringArturo = "Data Source=DATAWORKS-A;Initial Catalog=BibliotecaVirtual;Integrated Security=True";
+            conecciones.ConnectionStringPepe = "Data Source=DESKTOP-FAIRBUP\\SQLEXPRESS;Initial Catalog=BibliotecaVirtual;Integrated Security=True";
+            return conecciones;
         }
+    }
+
+    public class ConectionLocal
+    {
+        public string ConnectionStringArturo { get; set; }
+        public string ConnectionStringPepe { get; set; }
     }
 }

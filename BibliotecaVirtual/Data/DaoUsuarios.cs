@@ -10,11 +10,11 @@ namespace BibliotecaVirtual.Data
 {
     public class DaoUsuarios
     {
-        string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString();
+        ConectionLocal ConnectionString = new Conextion().BiBliotecaVirtualConnectionString();
 
         public DataTable GetUsuarios()
         {
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            using (SqlConnection conn = new SqlConnection(ConnectionString.ConnectionStringPepe))
             {
                 try
                 {
