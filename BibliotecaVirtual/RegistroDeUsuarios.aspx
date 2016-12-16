@@ -3,6 +3,7 @@
     <form id="form" runat="server">
         <div class="container text-center">
             <h1>Registro De Usuarios</h1>
+            <br />
             <div class="row">
                 <div class="form-group">
                     <div class="col-xs-12 col-md-6 col-lg-6">
@@ -50,11 +51,12 @@
             <div class="row">
                 <div class="form-group">
                    <div class="form-inline">
-                    <div class="col-xs-12 col-md-8 col-lg-8">
+                    <div class="col-xs-12 col-md-6 col-lg-6">
                         <label for="label">Fecha De nacimiento: </label>
                         <asp:TextBox ID="txtDateB" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                     </div>
+                    <div class="col-xs-2"></div>
                     <div class="form-inline">
                         <div class="col-xs-12 col-md-4 col-lg-4 text-left">
                             <label for="label">Activo: </label>
@@ -67,8 +69,8 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <div class="form-inline">
-                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" />
-                        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
+                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn-primary"/>
+                        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn-danger"/>
                     </div>
                 </div>
                 <div class="col-md-4"></div>
