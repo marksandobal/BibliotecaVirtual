@@ -16,6 +16,34 @@
                  </div>
              </div>
          </div>
+         <div class="row">
+             <div class="col-xs-12 col-md-6 col-lg-6">
+                 <div class="form-inline">
+                     <label for="label">Matricula: </label>
+                     <asp:TextBox ID="txtMatricula" runat="server" CssClass="form-control"></asp:TextBox>
+                 </div>
+             </div>
+             <div class="col-xs-12 col-md-6 col-lg-6">
+                 <div class="form-inline">
+                     <label for="label">Autor: </label>
+                     <asp:TextBox ID="txtAutor" runat="server" CssClass="form-control"></asp:TextBox>
+                 </div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-xs-12 col-md-6 col-lg-6">
+                 <div class="form-inline">
+                     <label for="label">Telefono: </label>
+                     <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control"></asp:TextBox>
+                 </div>
+             </div>
+             <div class="col-xs-12 col-md-6 col-lg-6">
+                 <div class="form-inline">
+                     <label for="label">Direccion: </label>
+                     <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control"></asp:TextBox>
+                 </div>
+             </div>
+         </div>
      </div>
  </form>
 </asp:Content>
