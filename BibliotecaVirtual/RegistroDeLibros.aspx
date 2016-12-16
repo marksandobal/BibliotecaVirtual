@@ -49,7 +49,7 @@
                         <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
                     </div>
                 </div>
-                <div class="col-md-4"></div>
+                <div class="col-md-4 "></div>
             </div>
         </div>
     </form>
