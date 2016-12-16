@@ -11,7 +11,7 @@ namespace BibliotecaVirtual.Data
     public class DaoUsuarios
     {
         //Cadena de Conexion... Escribe donde dice Arturo, Pon tu nombre, o PEPE como gustes.
-        string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString("Arturo");
+        string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString("pepe");
 
         public DataTable GetUsuarios()
         {

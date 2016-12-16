@@ -191,6 +191,8 @@
     <Content Include="js\mailform\tmstickup.js" />
     <Content Include="js\mailform\wow.js" />
     <Content Include="Prestamos.aspx" />
+    <Content Include="RegistroDeLibros.aspx" />
+    <Content Include="RegistroDeUsuarios.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm2.aspx" />
   </ItemGroup>
@@ -235,6 +237,20 @@
       <DependentUpon>Prestamos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroDeLibros.aspx.cs">
+      <DependentUpon>RegistroDeLibros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroDeLibros.aspx.designer.cs">
+      <DependentUpon>RegistroDeLibros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroDeUsuarios.aspx.cs">
+      <DependentUpon>RegistroDeUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroDeUsuarios.aspx.designer.cs">
+      <DependentUpon>RegistroDeUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
