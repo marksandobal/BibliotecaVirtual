@@ -47,8 +47,8 @@ namespace BibliotecaVirtual
             }
             catch (Exception ex)
             {
-                //string script = String.Format(@"alert('{0}');", Util.GetExMessage(ex));
-                //ScriptManager.RegisterStartupScript(Page, Page.GetType(), Guid.NewGuid().ToString(), script, true);
+                string script = String.Format(@"alert('{0}');", Util.GetExMessage(ex));
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), Guid.NewGuid().ToString(), script, true);
                 //WebUtil.SendErrorLog(ex);
             }
         }

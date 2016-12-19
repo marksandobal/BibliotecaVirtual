@@ -193,6 +193,7 @@
     <Content Include="Prestamos.aspx" />
     <Content Include="RegistroDeLibros.aspx" />
     <Content Include="RegistroDeUsuarios.aspx" />
+    <Content Include="RegistroTipoDeLibro.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm2.aspx" />
   </ItemGroup>
@@ -231,6 +232,7 @@
       <DependentUpon>MarterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="Model\Libros.cs" />
+    <Compile Include="Model\Util.cs" />
     <Compile Include="Model\Usuarios.cs" />
     <Compile Include="Prestamos.aspx.cs">
       <DependentUpon>Prestamos.aspx</DependentUpon>
@@ -253,6 +255,13 @@
     </Compile>
     <Compile Include="RegistroDeUsuarios.aspx.designer.cs">
       <DependentUpon>RegistroDeUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroTipoDeLibro.aspx.cs">
+      <DependentUpon>RegistroTipoDeLibro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroTipoDeLibro.aspx.designer.cs">
+      <DependentUpon>RegistroTipoDeLibro.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
