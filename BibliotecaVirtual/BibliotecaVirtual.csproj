@@ -140,6 +140,13 @@
     <Content Include="images\favicon.ico" />
     <Content Include="images\gmap_marker.png" />
     <Content Include="images\gmap_marker_active.png" />
+    <Content Include="images\icons\delete.png" />
+    <Content Include="images\icons\delete2.png" />
+    <Content Include="images\icons\edit.png" />
+    <Content Include="images\icons\edit2.png" />
+    <Content Include="images\icons\edit248.png" />
+    <Content Include="images\icons\edit32.png" />
+    <Content Include="images\icons\edit48.png" />
     <Content Include="images\page-1_img01.jpg" />
     <Content Include="images\page-1_img02.jpg" />
     <Content Include="images\page-1_img03.jpg" />
@@ -206,6 +213,7 @@
       <DependentUpon>ApartadoDeLibros.aspx</DependentUpon>
     </Compile>
     <Compile Include="BizConextions\BizLibros.cs" />
+    <Compile Include="BizConextions\BizTipoLibros.cs" />
     <Compile Include="BizConextions\BizUsuarios.cs" />
     <Compile Include="Busqueda.aspx.cs">
       <DependentUpon>Busqueda.aspx</DependentUpon>
@@ -216,6 +224,7 @@
     </Compile>
     <Compile Include="Data\Conextion.cs" />
     <Compile Include="Data\DaoLibros.cs" />
+    <Compile Include="Data\DaoTipoLibros.cs" />
     <Compile Include="Data\DaoUsuarios.cs" />
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -232,6 +241,7 @@
       <DependentUpon>MarterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="Model\Libros.cs" />
+    <Compile Include="Model\TipoLibros.cs" />
     <Compile Include="Model\Util.cs" />
     <Compile Include="Model\Usuarios.cs" />
     <Compile Include="Prestamos.aspx.cs">

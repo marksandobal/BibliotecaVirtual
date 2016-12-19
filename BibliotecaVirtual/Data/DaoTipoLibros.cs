@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data;
 using System.Data.SqlClient;
-using BibliotecaVirtual.Data;
-using BibliotecaVirtual.Model;
+using System.Linq;
+using System.Web;
+
 namespace BibliotecaVirtual.Data
 {
-    public class DaoUsuarios
+    public class DaoTipoLibros
     {
         string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString("Arturo");
 
-        public DataTable GetUsuarios()
+        public DataTable GetClasificacionDeLibros()
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 try
                 {
-                    using (SqlCommand cmd = new SqlCommand("sp_Usuarios_GetUsers", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_TipoLibros_Get", conn))
                     {
                         cmd.CommandTimeout = 0;
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -36,25 +35,17 @@ namespace BibliotecaVirtual.Data
                 }
             }
         }
-
-        public DataTable InsertUsuarios(Usuarios usuario)
+        public DataTable InsertTipoLibros(string clasificacion)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 try
                 {
-                    using (SqlCommand cmd = new SqlCommand("sp_Usuarios_Insert", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_TipoLibros_Insert", conn))
                     {
                         cmd.CommandTimeout = 0;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add(new SqlParameter("@Nombre", usuario.Nombre));
-                        cmd.Parameters.Add(new SqlParameter("@Apellidos", usuario.Apellidos));
-                        cmd.Parameters.Add(new SqlParameter("@Edad", usuario.Edad));
-                        cmd.Parameters.Add(new SqlParameter("@FechaNacimiento", usuario.FechaNacimiento));
-                        cmd.Parameters.Add(new SqlParameter("@Matricula", usuario.Matricula));
-                        cmd.Parameters.Add(new SqlParameter("@Direccion", usuario.Direccion));
-                        cmd.Parameters.Add(new SqlParameter("@Telefono", usuario.Telefono));
-                        cmd.Parameters.Add(new SqlParameter("@Activo", usuario.Activo));
+                        cmd.Parameters.Add(new SqlParameter("@Clasificacion", clasificacion));
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
 
