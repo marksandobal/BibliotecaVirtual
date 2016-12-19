@@ -204,6 +204,7 @@
     <Compile Include="ApartadoDeLibros.aspx.designer.cs">
       <DependentUpon>ApartadoDeLibros.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BizConextions\BizLibros.cs" />
     <Compile Include="BizConextions\BizUsuarios.cs" />
     <Compile Include="Busqueda.aspx.cs">
       <DependentUpon>Busqueda.aspx</DependentUpon>
@@ -213,6 +214,7 @@
       <DependentUpon>Busqueda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Data\Conextion.cs" />
+    <Compile Include="Data\DaoLibros.cs" />
     <Compile Include="Data\DaoUsuarios.cs" />
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -228,6 +230,7 @@
     <Compile Include="MarterPage.Master.designer.cs">
       <DependentUpon>MarterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="Model\Libros.cs" />
     <Compile Include="Model\Usuarios.cs" />
     <Compile Include="Prestamos.aspx.cs">
       <DependentUpon>Prestamos.aspx</DependentUpon>

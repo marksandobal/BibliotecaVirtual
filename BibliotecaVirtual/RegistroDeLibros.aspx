@@ -26,7 +26,7 @@
                 <div class="col-xs-12 col-md-12 col-lg-6">
                     <div class="form-inline">
                         <label for="label">Fecha De Publicacion:</label>
-                    <asp:TextBox ID="txtFechaPublicacion" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtFechaPublicacion" runat="server" CssClass="form-control" type="Date"></asp:TextBox>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <div class="form-inline">
-                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn-primary"/>
+                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn-primary" OnClick="btnGuardar_Click"/>
                         <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn-danger"/>
                     </div>
                 </div>

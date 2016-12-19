@@ -51,7 +51,7 @@ namespace BibliotecaVirtual.Data
                         cmd.Parameters.Add(new SqlParameter("@Nombre", usuario.Nombre));
                         cmd.Parameters.Add(new SqlParameter("@Apellidos", usuario.Apellidos));
                         cmd.Parameters.Add(new SqlParameter("@Edad", usuario.Edad));
-                        cmd.Parameters.Add(new SqlParameter("@FechaDeNacimiento", usuario.FechaNacimiento));
+                        cmd.Parameters.Add(new SqlParameter("@FechaNacimiento", usuario.FechaNacimiento));
                         cmd.Parameters.Add(new SqlParameter("@Matricula", usuario.Matricula));
                         cmd.Parameters.Add(new SqlParameter("@Direccion", usuario.Direccion));
                         cmd.Parameters.Add(new SqlParameter("@Telefono", usuario.Telefono));
