@@ -35,5 +35,10 @@ namespace BibliotecaVirtual.Biz
 
             return userList;
         }
+
+        public void InsertUsuarios(Usuarios usuario)
+        {
+            new DaoUsuarios().InsertUsuarios(usuario);
+        }
     }
 }
