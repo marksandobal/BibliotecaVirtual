@@ -28,7 +28,86 @@ namespace BibliotecaVirtual.Data
                         cmd.Parameters.Add(new SqlParameter("@Editorial", libros.Editorial));
                         cmd.Parameters.Add(new SqlParameter("@FechaPublicacion", libros.FechaPublicacion));
                         cmd.Parameters.Add(new SqlParameter("@Descripcion", libros.Descripcion));
-                        cmd.Parameters.Add(new SqlParameter("@TipoLibro", libros.TipoLibro));
+                        cmd.Parameters.Add(new SqlParameter("@TipoLibroId", libros.TipoLibroId));
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+        public DataTable UpdateLibros(Libros libros)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_Libros_Update", conn))
+                    {
+                        cmd.CommandTimeout = 0;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("@LibroId", libros.LibroId));
+                        cmd.Parameters.Add(new SqlParameter("@Titulo", libros.Titulo));
+                        cmd.Parameters.Add(new SqlParameter("@Autor", libros.Autor));
+                        cmd.Parameters.Add(new SqlParameter("@Edicion", libros.Edicion));
+                        cmd.Parameters.Add(new SqlParameter("@Editorial", libros.Editorial));
+                        cmd.Parameters.Add(new SqlParameter("@FechaPublicacion", libros.FechaPublicacion));
+                        cmd.Parameters.Add(new SqlParameter("@Descripcion", libros.Descripcion));
+                        cmd.Parameters.Add(new SqlParameter("@TipoLibroId", libros.TipoLibroId));
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+        public DataTable GetLibros()
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_Libros_Get", conn))
+                    {
+                        cmd.CommandTimeout = 0;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                       // cmd.Parameters.Add(new SqlParameter("@Titulo", libros.Titulo));
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+        public DataTable DeleteLibros(int libroId)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_Libros_Delete", conn))
+                    {
+                        cmd.CommandTimeout = 0;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("@LibroId", libroId));
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
 

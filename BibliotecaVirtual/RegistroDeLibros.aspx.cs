@@ -14,14 +14,48 @@ namespace BibliotecaVirtual
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtFechaPublicacion.Text = DateTime.Today.ToString("yyyy-MM-dd");
+            if (!IsPostBack)
+            {
+                txtFechaPublicacion.Text = DateTime.Today.ToString("yyyy-MM-dd");
+                LoadGridLibros();
+                LoadDDlClasificacion();
+                if (grvLibros.SelectedIndex <= 0)
+                {
+                    LimpiarCampos();
+                }
+            }
+            hdLibroId.Value = "0";
         }
+        //Limpia los campos del formulario
+        protected void LimpiarCampos()
+        {
+            txtTitulo.Text = string.Empty;
+            txtEdicion.Text = string.Empty;
+            txtAutor.Text = string.Empty;
+            txtFechaPublicacion.Text = DateTime.Today.ToString("yyyy-MM-dd");
+            txtEditorial.Text = string.Empty;
+            txtArea.Text = string.Empty;
+        }
+        //Realiza la carga de Datos en el GridView
+        protected void LoadGridLibros()
+        {
+            List<Libros> list = new BizLibros().GetLibros();
+            grvLibros.DataSource = list;
+            grvLibros.DataBind();
+        }
+        //Realiza la Carga de Datos en el DropDownList
+        protected void LoadDDlClasificacion()
+        {
+            List<TipoLibros> list = new BizTipoLibros().GetClasificacion();
+            ddlClasificación.DataSource = list;
+            ddlClasificación.DataBind();
 
+        }
+        //Guarda los datos en la Tabla Libros
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             try {
-                bool validacion = false;
-                validacion = ValidacionDeCampos();
+                bool validacion = ValidacionDeCampos();
                 if (validacion == false)
                 {
                     divError.Visible = false;
@@ -33,37 +67,39 @@ namespace BibliotecaVirtual
                     libro.FechaPublicacion = Convert.ToDateTime(txtFechaPublicacion.Text);
                     libro.Editorial = txtEditorial.Text;
                     libro.Descripcion = txtArea.Text;
-                    libro.TipoLibro = "De Prueba";
+                    libro.TipoLibroId = int.Parse(ddlClasificación.SelectedValue);
                     BizLibros bizLibros = new BizLibros();
-                    bizLibros.InsertLibros(libro);
-                    string script = String.Format(@"alert('El registro se ha guardado correctamente');");
-                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), Guid.NewGuid().ToString(), script, true);
 
-                    txtTitulo.Text = string.Empty;
-                    txtEdicion.Text = string.Empty;
-                    txtAutor.Text = string.Empty;
-                    txtFechaPublicacion.Text = DateTime.Today.ToString("yyyy-MM-dd");
-                    txtEditorial.Text = string.Empty;
-                    txtArea.Text = string.Empty;
-                    
-
-                    divTitulo.Attributes.Remove("class");
-                    divEdicion.Attributes.Remove("class");
-                    divAutor.Attributes.Remove("class");
-                    divEditorial.Attributes.Remove("class");
-                    divDescripcion.Attributes.Remove("class");
-
+                    List<Libros> list = new BizLibros().GetLibros();
+                    var existe = list.Where(a => a.Titulo == libro.Titulo && a.Autor == libro.Autor && a.Edicion == libro.Edicion && a.Editorial == libro.Editorial && a.Clasificacion == Convert.ToString(ddlClasificación.SelectedItem)).ToList();
+                    if (existe.Count > 0)
+                    {
+                        string script = String.Format(@"alert('El registro que intenta guardar ya existe');");
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), Guid.NewGuid().ToString(), script, true);
+                    }
+                    else
+                    {
+                        //Si el HidenField tiene un valor, entonces el registro existe, por lo tanto lo actualiza           
+                        if (int.Parse(hdLibroId.Value) > 0)
+                        {
+                            libro.LibroId = int.Parse(hdLibroId.Value);
+                            bizLibros.UpdateLibros(libro);
+                        }
+                        else
+                        {
+                            bizLibros.InsertLibros(libro);
+                        }
+                        string script = String.Format(@"alert('El registro se ha guardado correctamente');");
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), Guid.NewGuid().ToString(), script, true);
+                        LimpiarCampos();
+                        LoadGridLibros();
+                    }
                 }
                 else
                 {
                     divError.Visible = true;
                     lblError.Text = "Algunos de los campos se encuentra vacio";
                     divError.Attributes.Add("Class", "alert-danger");
-                    //divTitulo.Attributes.Add("Class", "has-error");
-                    //divEdicion.Attributes.Add("Class", "has-error");
-                    //divAutor.Attributes.Add("Class", "has-error");
-                    //divEditorial.Attributes.Add("Class", "has-error");
-                    //divDescripcion.Attributes.Add("Class", "has-error");
                 }
             }
             catch (Exception ex)
@@ -73,7 +109,37 @@ namespace BibliotecaVirtual
                 //WebUtil.SendErrorLog(ex);
             }
         }
-
+        protected void grvLibros_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {//Elimina registros de la Tabla Libros
+                int id = (int)grvLibros.DataKeys[e.RowIndex]["LibroId"];//Obtengo el ID del registro para realizar la eliminacion por ID
+                new BizLibros().DeleteLibros(id);
+                LoadGridLibros();
+            }
+            catch (Exception ex)
+            {
+                string script = String.Format(@"alert('{0}');", Util.GetExMessage(ex));
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), Guid.NewGuid().ToString(), script, true);
+            }
+        }
+        protected void lnkEdit_Click(object sender, EventArgs e)
+        {
+            int rowIndex = ((sender as LinkButton).Parent.Parent as GridViewRow).RowIndex;
+            int libroId = (int)grvLibros.DataKeys[rowIndex]["LibroId"];//Obtengo el ID del Registro y filtro para mostrar los datos en la vista
+            hdLibroId.Value = Convert.ToString(libroId);
+            List<Libros> list = new BizLibros().GetLibros();
+            var libro = list.Where(a => a.LibroId == libroId).FirstOrDefault();//Linq Básico, filtra los registros por ID
+            //Asigno valores a los controles
+            txtTitulo.Text = libro.Titulo;
+            txtEdicion.Text = libro.Edicion;
+            txtAutor.Text = libro.Autor;
+            txtFechaPublicacion.Text = libro.FechaPublicacion.ToString("yyyy-MM-dd");
+            txtEditorial.Text = libro.Editorial;
+            ddlClasificación.SelectedValue = Convert.ToString(libro.TipoLibroId);
+            txtArea.Text = libro.Descripcion;
+        }
+        //Valida que los campos no esten vacios
         protected bool ValidacionDeCampos()
         {
             bool vacio = false;
@@ -81,29 +147,53 @@ namespace BibliotecaVirtual
             {
                 divTitulo.Attributes.Add("Class", "has-error");
                 vacio = true;
-                return vacio;
+            }
+            else {
+                divTitulo.Attributes.Remove("class");
             }
             if (string.IsNullOrEmpty(txtEdicion.Text))
             {
                 divEdicion.Attributes.Add("Class", "has-error");
                 vacio = true;
             }
+            else {
+                divEdicion.Attributes.Remove("class");
+            }
             if (string.IsNullOrEmpty(txtAutor.Text))
             {
                 divAutor.Attributes.Add("Class", "has-error");
                 vacio = true;
+            }
+            else {
+                divAutor.Attributes.Remove("class");
             }
             if (string.IsNullOrEmpty(txtEditorial.Text))
             {
                 divEditorial.Attributes.Add("Class", "has-error");
                 vacio = true;
             }
+            else {
+                divEditorial.Attributes.Remove("class");
+            }
             if (string.IsNullOrEmpty(txtArea.Text))
             {
                 divDescripcion.Attributes.Add("Class", "has-error");
                 vacio = true;
             }
+            else {
+                divDescripcion.Attributes.Remove("class");
+            }
             return vacio;
+        }
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            divError.Visible = false;
+            divTitulo.Attributes.Remove("class");
+            divEdicion.Attributes.Remove("class");
+            divAutor.Attributes.Remove("class");
+            divEditorial.Attributes.Remove("class");
+            divDescripcion.Attributes.Remove("class");
         }
     }
 }
