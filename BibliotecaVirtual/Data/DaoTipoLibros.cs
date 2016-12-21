@@ -9,7 +9,7 @@ namespace BibliotecaVirtual.Data
 {
     public class DaoTipoLibros
     {
-        string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString("Arturo");
+        string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString();
 
         public DataTable GetClasificacionDeLibros()
         {

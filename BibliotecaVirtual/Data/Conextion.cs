@@ -7,14 +7,16 @@ namespace BibliotecaVirtual.Data
 {
     public class Conextion
     {
-        public string BiBliotecaVirtualConnectionString(string conection)
+        public string BiBliotecaVirtualConnectionString()
         {
+            string conection ="Arturo";
+
             string ConnectionString;
             if (conection == "Arturo")
             {
                 ConnectionString = "Data Source=DATAWORKS-A;Initial Catalog=BibliotecaVirtual;Integrated Security=True";
             }
-            else{
+           else{
                 ConnectionString = "Data Source=DESKTOP-FAIRBUP\\SQLEXPRESS;Initial Catalog=BibliotecaVirtual;Integrated Security=True";
             }
             
