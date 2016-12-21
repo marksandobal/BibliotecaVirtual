@@ -9,9 +9,9 @@ using BibliotecaVirtual.Model;
 namespace BibliotecaVirtual.Data
 {
     public class DaoUsuarios
-    {
+    {    //Conexión SQL
         string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString();
-
+        //Metodo Get
         public DataTable GetUsuarios()
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
@@ -36,7 +36,7 @@ namespace BibliotecaVirtual.Data
                 }
             }
         }
-
+        //Método Insert
         public DataTable InsertUsuarios(Usuarios usuario)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))

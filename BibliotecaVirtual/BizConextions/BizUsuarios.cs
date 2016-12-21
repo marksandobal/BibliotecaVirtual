@@ -9,7 +9,7 @@ using BibliotecaVirtual.Data;
 namespace BibliotecaVirtual.Biz
 {
     public class BizUsuarios
-    {
+    {   //Método Get
         public List<Usuarios> GetUsuarios()
         {
             DaoUsuarios dao = new DaoUsuarios();
@@ -35,7 +35,7 @@ namespace BibliotecaVirtual.Biz
 
             return userList;
         }
-
+        //Método Insert
         public void InsertUsuarios(Usuarios usuario)
         {
             new DaoUsuarios().InsertUsuarios(usuario);

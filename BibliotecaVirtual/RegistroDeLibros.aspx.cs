@@ -49,7 +49,7 @@ namespace BibliotecaVirtual
             List<TipoLibros> list = new BizTipoLibros().GetClasificacion();
             ddlClasificación.DataSource = list;
             ddlClasificación.DataBind();
-
+            ddlClasificación.Items.Insert(0, new ListItem("Seleccione una clasificación"));
         }
         //Guarda los datos en la Tabla Libros
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -182,6 +182,16 @@ namespace BibliotecaVirtual
             }
             else {
                 divDescripcion.Attributes.Remove("class");
+            }
+
+            if (ddlClasificación.SelectedIndex == 0)
+            {
+                divddlClasificacion.Attributes.Add("Class", "has-error");
+                vacio = true;
+            }
+            else
+            {
+                divddlClasificacion.Attributes.Remove("class");
             }
             return vacio;
         }

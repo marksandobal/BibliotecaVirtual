@@ -14,6 +14,7 @@
                 <div class="form-inline">
                     <div id="divTitulo" runat="server">
                     <label for="label">Titulo: </label>
+                        
                     <asp:TextBox ID="txtTitulo" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
@@ -53,7 +54,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-12 col-lg-6">
-                        <div id="div1" runat="server">
+                        <div id="divddlClasificacion" runat="server">
                         <label for="label">Clasificación: </label>
                             <asp:DropDownList ID="ddlClasificación" runat="server" CssClass="form-control" DataTextField="Clasificacion" DataValueField="TipoLibroId"></asp:DropDownList>
                         </div>
