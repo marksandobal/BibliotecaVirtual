@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Privacy Policy</title>
+    <title>Biblioteca Virtual</title>
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -35,14 +35,29 @@
             <p class="brand_slogan">Virtual</p>
           </div><a href="callto:#" class="fa-phone">800-2345-6789</a>
           <p>One of our representatives will happily contact you within 24 hours. For urgent needs call us at</p>
+            <p><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="width:auto">Cerrar Sesión</button></p>
         </div>
         <div id="stuck_container" class="stuck_container">
           <div class="container">
             <nav class="nav">
               <ul data-type="navbar" class="sf-menu">
-                <li><a href="./">Home</a>
+                <li><a href="Inicio.aspx">Inicio</a>
                 </li>
-                <li><a href="index-1.html">About</a>
+                <li><a href="index-2.html">Registros</a>
+                  <ul>
+                    <li><a href="RegistroDeLibros.aspx">Registro De Libros </a></li>
+                    <li><a href="RegistroDeUsuarios.aspx">Registro De Usuarios</a></li>
+                    <li><a href="RegistroTipoDeLibro.aspx">Registro Clasificación Libros</a></li>
+                  </ul>
+                </li>
+                <li><a href="index-3.html">Serviciós</a>
+                    <ul>
+                        <li><a href="ApartadoDeLibros.aspx">Apartado de Libros</a></li>
+                        <li><a href="Busqueda.aspx">Busqueda de Libros</a></li>
+                        <li><a href="Prestamos.aspx">Prestamos de Libros</a></li>
+                    </ul>
+                </li>
+                <li><a href="index-1.html">Acerca De</a>
                   <ul>
                     <li><a href="#">Lorem ipsum dolor</a></li>
                     <li><a href="#">Conse ctetur adipisicing</a></li>
@@ -57,11 +72,7 @@
                     <li><a href="#">Ut enim ad minim</a></li>
                   </ul>
                 </li>
-                <li><a href="index-2.html">Services</a>
-                </li>
-                <li><a href="index-3.html">FAQS</a>
-                </li>
-                <li><a href="index-4.html">Contacts</a>
+                <li><a href="index-4.html">Contactos</a>
                 </li>
               </ul>
             </nav>
@@ -77,9 +88,29 @@
         <section class="well1">
           <div class="container">
             <h2></h2>
+                <form id="form" runat="server">
               <asp:ContentPlaceHolder runat ="server" ID="ContentMasterId">
 
               </asp:ContentPlaceHolder>
+                    <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+    
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Confirmar</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>¿Seguro que desea cerrar Sesión?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <asp:Button ID="btnCloseSession" runat="server" Text="Si" OnClick="btnCloseSession_Click" CssClass="btn btn-primary"/>
+                        </div>
+                      </div>    
+                    </div>
+                  </div>
+                </form>
             <hr>
           </div>
         </section>
@@ -98,6 +129,11 @@
         </section>
       </footer>
     </div>
+      <script>
+          function closeSession() {
+          
+          }
+      </script>
     <script src="js/script.js"></script><!-- coded by Kirk -->
       <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>

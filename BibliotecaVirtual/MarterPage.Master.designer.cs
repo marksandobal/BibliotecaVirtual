@@ -13,6 +13,15 @@ namespace BibliotecaVirtual {
     public partial class MarterPage {
         
         /// <summary>
+        /// form control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form;
+        
+        /// <summary>
         /// ContentMasterId control.
         /// </summary>
         /// <remarks>
@@ -20,5 +29,14 @@ namespace BibliotecaVirtual {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentMasterId;
+        
+        /// <summary>
+        /// btnCloseSession control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCloseSession;
     }
 }

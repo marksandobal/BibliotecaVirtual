@@ -172,7 +172,7 @@
     <Content Include="images\page-3_img06.jpg" />
     <Content Include="images\page-4_img01.jpg" />
     <Content Include="images\warning_bar_0000_us.jpg" />
-    <Content Include="Index.aspx" />
+    <Content Include="Inicio.aspx" />
     <Content Include="js\mailform\camera.js" />
     <Content Include="js\mailform\device.min.js" />
     <Content Include="js\mailform\html5shiv.js" />
@@ -201,8 +201,8 @@
     <Content Include="RegistroDeLibros.aspx" />
     <Content Include="RegistroDeUsuarios.aspx" />
     <Content Include="RegistroTipoDeLibro.aspx" />
+    <Content Include="Session.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApartadoDeLibros.aspx.cs">
@@ -226,12 +226,12 @@
     <Compile Include="Data\DaoLibros.cs" />
     <Compile Include="Data\DaoTipoLibros.cs" />
     <Compile Include="Data\DaoUsuarios.cs" />
-    <Compile Include="Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="MarterPage.Master.cs">
       <DependentUpon>MarterPage.Master</DependentUpon>
@@ -273,12 +273,12 @@
     <Compile Include="RegistroTipoDeLibro.aspx.designer.cs">
       <DependentUpon>RegistroTipoDeLibro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="Session.aspx.cs">
+      <DependentUpon>Session.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="Session.aspx.designer.cs">
+      <DependentUpon>Session.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MarterPage.Master" AutoEventWireup="true" CodeBehind="Prestamos.aspx.cs" Inherits="BibliotecaVirtual.Prestamos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentMasterId" runat="server">
-    <form id="form" runat="server" class="form-horizontal">
-        <div class="container text-center">
+<%--    <form id="form" runat="server" class="form-horizontal">
+    </form>--%>
+        <div class="container text-center form-horizontal">
             <h1>Prestamos</h1>
             <br />
                 <div class="form-group">
@@ -78,5 +79,4 @@
                 <asp:Button ID="Button3" runat="server" Text="Enviar" CssClass="btn-danger"/>
             </div>
         </div>
-    </form>
 </asp:Content>

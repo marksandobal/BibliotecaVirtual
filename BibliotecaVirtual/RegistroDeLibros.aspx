@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MarterPage.Master" AutoEventWireup="true" CodeBehind="RegistroDeLibros.aspx.cs" Inherits="BibliotecaVirtual.RegistroDeLibros" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentMasterId" runat="server">
-    <form id="form" runat="server">
+<%--    <form id="form" runat="server">
+    </form>--%>
         <div class="container text-center">
             <h1>Registro De Libros</h1>
             <br />
@@ -121,5 +122,4 @@
                     </asp:GridView>
                 </div>
         </div>
-    </form>
 </asp:Content>

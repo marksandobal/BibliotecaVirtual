@@ -1,7 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MarterPage.Master" AutoEventWireup="true" CodeBehind="ApartadoDeLibros.aspx.cs" Inherits="BibliotecaVirtual.ApartadoDeLibros" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentMasterId" runat="server">
- <form id="for1" runat="server">
+<%-- <form id="for1" runat="server">
+ </form>--%>
      <div class="container text-center">
+         <h1>Apartado de Libros</h1>
+         <br />
          <div class="row">
              <div class="col-xs-12 col-md-6 col-lg-6">
                  <div class="form-inline">
@@ -45,5 +48,4 @@
              </div>
          </div>
      </div>
- </form>
 </asp:Content>

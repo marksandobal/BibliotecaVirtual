@@ -13,7 +13,12 @@ namespace BibliotecaVirtual
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string usuarioId = (string)Session["UsuarioId"];
+            if (!IsPostBack)
+            {
+                if (usuarioId == "" || usuarioId == null)
+                    Response.Redirect("~/Session.aspx");
+            }
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)

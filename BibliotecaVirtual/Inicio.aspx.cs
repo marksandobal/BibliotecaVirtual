@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace BibliotecaVirtual
 {
-    public partial class Prestamos : System.Web.UI.Page
+    public partial class Inicio : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,6 +17,12 @@ namespace BibliotecaVirtual
                 if (usuarioId == "" || usuarioId == null)
                     Response.Redirect("~/Session.aspx");
             }
+        }
+
+        protected void btnCloseSession_Click(object sender, EventArgs e)
+        {
+            Session["UsuarioId"] = null;
+            Response.Redirect("~/Session.aspx");
         }
     }
 }
