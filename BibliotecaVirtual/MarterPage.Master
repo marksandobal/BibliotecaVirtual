@@ -129,11 +129,6 @@
         </section>
       </footer>
     </div>
-      <script>
-          function closeSession() {
-          
-          }
-      </script>
     <script src="js/script.js"></script><!-- coded by Kirk -->
       <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>

@@ -10,12 +10,10 @@ namespace BibliotecaVirtual
     public partial class Busqueda : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            string usuarioId = (string)Session["UsuarioId"];
+        {           
             if (!IsPostBack)
             {
-                if (usuarioId == "" || usuarioId == null)
-                    Response.Redirect("~/Session.aspx");
+                
             }
         }
     }

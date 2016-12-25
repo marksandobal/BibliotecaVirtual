@@ -18,11 +18,5 @@ namespace BibliotecaVirtual
                     Response.Redirect("~/Session.aspx");
             }
         }
-
-        protected void btnCloseSession_Click(object sender, EventArgs e)
-        {
-            Session["UsuarioId"] = null;
-            Response.Redirect("~/Session.aspx");
-        }
     }
 }

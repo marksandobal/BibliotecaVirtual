@@ -14,14 +14,9 @@ namespace BibliotecaVirtual
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usuarioId = (string)Session["UsuarioId"];
 
             if (!IsPostBack)
-            {   //======== Validacion de Sesión Activa =========
-                if (usuarioId == "" || usuarioId == null)
-                    Response.Redirect("~/Session.aspx");
-                //======== Validacion de Sesión Activa =========
-
+            {
                 txtFechaPublicacion.Text = DateTime.Today.ToString("yyyy-MM-dd");
                 LoadGridLibros();
                 LoadDDlClasificacion();

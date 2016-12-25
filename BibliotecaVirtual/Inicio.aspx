@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Inicio</title>
+    <title>Home</title>
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/camera.css">
     <link rel="stylesheet" href="css/owl-carousel.css">
+    <%--<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">--%>
     <script src="js/jquery.js"></script>
     <script src="js/jquery-migrate-1.2.1.js"></script><!--[if lt IE 9]>
     <html class="lt-ie9">
@@ -35,13 +36,16 @@
             <p class="brand_slogan">Company</p>
           </div><a href="callto:#" class="fa-phone">800-2345-6789</a>
           <p>One of our representatives will happily contact you within 24 hours. For urgent needs call us at</p>
-            <p><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="width:auto">Cerrar Sesión</button></p>        
+            <%--<p>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+            </p>--%>
         </div>
         <div id="stuck_container" class="stuck_container">
           <div class="container">
             <nav class="nav">
               <ul data-type="navbar" class="sf-menu">
-                <li class="active"><a href="Inicio.aspx">Inicio</a>
+                <li><a href="Inicio.aspx">Inicio</a>
                 </li>
                 <li><a href="index-2.html">Registros</a>
                   <ul>
@@ -78,6 +82,9 @@
             </nav>
           </div>
         </div>
+		<div class="stuck_container">
+		
+		</div>
       </header>
       <!--
       ========================================================
@@ -284,6 +291,26 @@
               </div>
             </div>
           </div>
+<%--        <div class="container">
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">    
+                <!-- Modal content-->
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </div>     
+            </div>
+            </div>
+        </div>--%>
         </section>
       </main>
       <!--
@@ -351,5 +378,6 @@
       </footer>
     </div>
     <script src="js/script.js"></script>
+      <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
