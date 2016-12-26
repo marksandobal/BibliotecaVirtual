@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="css/mailform.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="js/jquery.js"></script>
-    <script src="js/jquery-migrate-1.2.1.js"></script><!--[if lt IE 9]>
+    <script src="js/jquery-migrate-1.2.1.js"></script>
+    
+      <!--[if lt IE 9]>
     <html class="lt-ie9">
     </html>
     <script src="js/html5shiv.js"></script><![endif]-->
@@ -92,7 +94,7 @@
               <asp:ContentPlaceHolder runat ="server" ID="ContentMasterId">
 
               </asp:ContentPlaceHolder>
-                    <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal fade" id="myModal" role="dialog">
                     <div class="modal-dialog">
     
                       <!-- Modal content-->

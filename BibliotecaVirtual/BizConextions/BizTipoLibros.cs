@@ -33,5 +33,13 @@ namespace BibliotecaVirtual.BizConextions
         {
             new DaoTipoLibros().InsertTipoLibros(clasificacion);
         }
+        public void UpdateTipoLibros(int tipoLibroId,string clasificacion)
+        {
+            new DaoTipoLibros().UpdateTipoLibros(tipoLibroId,clasificacion);
+        }
+        public void DeleteTipoLibros(int tipoLibroId)
+        {
+            new DaoTipoLibros().DeleteTipoLibros(tipoLibroId);
+        }
     }
 }

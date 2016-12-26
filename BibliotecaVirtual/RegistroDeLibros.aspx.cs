@@ -24,8 +24,8 @@ namespace BibliotecaVirtual
                 {
                     LimpiarCampos();
                 }
-            }
-            hdLibroId.Value = "0";
+                hdLibroId.Value = "0";
+            }          
         }
         //Limpia los campos del formulario
         protected void LimpiarCampos()
@@ -75,8 +75,11 @@ namespace BibliotecaVirtual
                     var existe = list.Where(a => a.Titulo == libro.Titulo && a.Autor == libro.Autor && a.Edicion == libro.Edicion && a.Editorial == libro.Editorial && a.Clasificacion == Convert.ToString(ddlClasificación.SelectedItem)).ToList();
                     if (existe.Count > 0)
                     {
-                        string script = String.Format(@"alert('El registro que intenta guardar ya existe');");
-                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), Guid.NewGuid().ToString(), script, true);
+                        divError.Visible = true;
+                        lblError.Text = "El registro que intenta insertar ya Existe";
+                        divError.Attributes.Add("Class", "alert alert-warning");
+                        //string script = String.Format(@"alert('El registro que intenta guardar ya existe');");
+                        //ScriptManager.RegisterStartupScript(Page, Page.GetType(), Guid.NewGuid().ToString(), script, true);
                     }
                     else
                     {
@@ -85,13 +88,20 @@ namespace BibliotecaVirtual
                         {
                             libro.LibroId = int.Parse(hdLibroId.Value);
                             bizLibros.UpdateLibros(libro);
+                            divError.Visible = true;
+                            lblError.Text = "El registro se ha Actualizado";
+                            divError.Attributes.Add("Class", "alert alert-success");
+                            btnGuardar.Text = "Guardar";
                         }
                         else
                         {
                             bizLibros.InsertLibros(libro);
+                            divError.Visible = true;
+                            lblError.Text = "El registro se ha guardado";
+                            divError.Attributes.Add("Class", "alert alert-success");
                         }
-                        string script = String.Format(@"alert('El registro se ha guardado correctamente');");
-                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), Guid.NewGuid().ToString(), script, true);
+                        //string script = String.Format(@"alert('El registro se ha guardado correctamente');");
+                        //ScriptManager.RegisterStartupScript(Page, Page.GetType(), Guid.NewGuid().ToString(), script, true);
                         LimpiarCampos();
                         LoadGridLibros();
                     }
@@ -100,7 +110,7 @@ namespace BibliotecaVirtual
                 {
                     divError.Visible = true;
                     lblError.Text = "Algunos de los campos se encuentra vacio";
-                    divError.Attributes.Add("Class", "alert-danger");
+                    divError.Attributes.Add("Class", "alert alert-danger");
                 }
             }
             catch (Exception ex)
@@ -139,6 +149,7 @@ namespace BibliotecaVirtual
             txtEditorial.Text = libro.Editorial;
             ddlClasificación.SelectedValue = Convert.ToString(libro.TipoLibroId);
             txtArea.Text = libro.Descripcion;
+            btnGuardar.Text = "Actualizar";
         }
         //Valida que los campos no esten vacios
         protected bool ValidacionDeCampos()
@@ -146,7 +157,7 @@ namespace BibliotecaVirtual
             bool vacio = false;
             if (string.IsNullOrEmpty(txtTitulo.Text))
             {
-                divTitulo.Attributes.Add("Class", "has-error");
+                divTitulo.Attributes.Add("Class", "alert has-error");
                 vacio = true;
             }
             else {
@@ -154,7 +165,7 @@ namespace BibliotecaVirtual
             }
             if (string.IsNullOrEmpty(txtEdicion.Text))
             {
-                divEdicion.Attributes.Add("Class", "has-error");
+                divEdicion.Attributes.Add("Class", "alert has-error");
                 vacio = true;
             }
             else {
@@ -162,7 +173,7 @@ namespace BibliotecaVirtual
             }
             if (string.IsNullOrEmpty(txtAutor.Text))
             {
-                divAutor.Attributes.Add("Class", "has-error");
+                divAutor.Attributes.Add("Class", "alert has-error");
                 vacio = true;
             }
             else {
@@ -170,7 +181,7 @@ namespace BibliotecaVirtual
             }
             if (string.IsNullOrEmpty(txtEditorial.Text))
             {
-                divEditorial.Attributes.Add("Class", "has-error");
+                divEditorial.Attributes.Add("Class", "alert has-error");
                 vacio = true;
             }
             else {
@@ -178,7 +189,7 @@ namespace BibliotecaVirtual
             }
             if (string.IsNullOrEmpty(txtArea.Text))
             {
-                divDescripcion.Attributes.Add("Class", "has-error");
+                divDescripcion.Attributes.Add("Class", "alert has-error");
                 vacio = true;
             }
             else {
@@ -187,7 +198,7 @@ namespace BibliotecaVirtual
 
             if (ddlClasificación.SelectedIndex == 0)
             {
-                divddlClasificacion.Attributes.Add("Class", "has-error");
+                divddlClasificacion.Attributes.Add("Class", "alert has-error");
                 vacio = true;
             }
             else
@@ -205,6 +216,7 @@ namespace BibliotecaVirtual
             divAutor.Attributes.Remove("class");
             divEditorial.Attributes.Remove("class");
             divDescripcion.Attributes.Remove("class");
+            btnGuardar.Text = "Guardar";
         }
     }
 }

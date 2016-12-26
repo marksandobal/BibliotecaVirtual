@@ -59,5 +59,54 @@ namespace BibliotecaVirtual.Data
                 }
             }
         }
+        public DataTable UpdateTipoLibros(int tipolibroId,string clasificacion)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_TipoLibros_Update", conn))
+                    {
+                        cmd.CommandTimeout = 0;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("@TipoLibroId", tipolibroId));
+                        cmd.Parameters.Add(new SqlParameter("@Clasificacion", clasificacion));
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+        public DataTable DeleteTipoLibros(int tipoLibroId)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_TipoLibros_Delete", conn))
+                    {
+                        cmd.CommandTimeout = 0;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("@TipoLibroId", tipoLibroId));
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
     }
 }

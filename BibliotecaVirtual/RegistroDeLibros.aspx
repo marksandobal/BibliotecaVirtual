@@ -7,7 +7,7 @@
             <br />
             <div class="row">
                 <div class="col-xs-12 col-md-12 col-lg-12" id="divError" runat="server">
-                    <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="lblError" runat="server" Text="" Style="font-weight:bold"></asp:Label>
                 </div>
             </div>
             <div class="row">
