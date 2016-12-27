@@ -6,24 +6,6 @@
             <h1>Prestamos</h1>
             <br />
                 <div class="form-group">
-                    <label class="control-label col-xs-3">Nombre del Alumno: </label>
-                    <div class="col-xs-4">
-                        <asp:TextBox ID="txtNombreAlumno" runat="server" CssClass="form-control"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-3">Matricula: </label>
-                    <div class="col-xs-4">
-                        <asp:TextBox ID="txtMatricula" runat="server" CssClass="form-control"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-3">Dirección: </label>
-                    <div class="col-xs-4">
-                        <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="form-group">
                     <label class="control-label col-xs-3">Título: </label>
                     <div class="col-xs-4">
                         <asp:TextBox ID="txtTitulo" runat="server" CssClass="form-control"></asp:TextBox>

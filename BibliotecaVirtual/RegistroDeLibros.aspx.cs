@@ -110,7 +110,7 @@ namespace BibliotecaVirtual
                 {
                     divError.Visible = true;
                     lblError.Text = "Algunos de los campos se encuentra vacio";
-                    divError.Attributes.Add("Class", "alert alert-danger");
+                    divError.Attributes.Add("Class", "alert-danger");
                 }
             }
             catch (Exception ex)

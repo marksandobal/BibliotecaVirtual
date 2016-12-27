@@ -64,5 +64,13 @@ namespace BibliotecaVirtual.Biz
         {
             new DaoUsuarios().LogLoginUsuario(usuarioId,ip);
         }
+        public void UpdateUsuarios(Usuarios usuario)
+        {
+            new DaoUsuarios().UpdateUsuarios(usuario);
+        }
+        public void DeleteUsuarios(int usuarioId)
+        {
+            new DaoUsuarios().DeleteUsuarios(usuarioId);
+        }
     }
 }
