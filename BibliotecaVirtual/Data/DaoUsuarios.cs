@@ -118,57 +118,62 @@ namespace BibliotecaVirtual.Data
                 }
             }
         }
-        //public DataTable UpdateUsuarios(Usuarios usuario)
-        //{
-        //    using (SqlConnection conn = new SqlConnection(ConnectionString))
-        //    {
-        //        try
-        //        {
-        //            using (SqlCommand cmd = new SqlCommand("sp_Usuarios_Update", conn))
-        //            {
-        //                cmd.CommandTimeout = 0;
-        //                cmd.CommandType = CommandType.StoredProcedure;
-        //                //parametros del sql
-        //                cmd.Parameters.Add(new SqlParameter("@UsuarioId", usuario.UsuarioId));
-        //                cmd.Parameters.Add(new SqlParameter("@Nombre", usuario.Nombre));
-        //                cmd.Parameters.Add(new SqlParameter("@Apellidos", usuario.Apellidos));
-        //                cmd.Parameters.Add(new SqlParameter("@Edad", usuario.Edad));
-        //                cmd.Parameters.Add(new SqlParameter("@FechaNacimiento", usuario.Edad));
-        //                cmd.Parameters.Add(new SqlParameter("@Matricula", usuario.Matricula));
-        //                cmd.Parameters.Add(new SqlParameter("@Direccion", usuario.Direccion));
-        //                cmd.Parameters.Add(new SqlParameter("@Activo", usuario.Activo));
-        //                SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //                DataTable dt = new DataTable();
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw ex;
-        //        }
-        //    }
-        //}
+        public DataTable UpdateUsuarios(Usuarios usuario)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_Usuarios_Update", conn))
+                    {
+                        cmd.CommandTimeout = 0;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        //parametros del sql
+                        cmd.Parameters.Add(new SqlParameter("@UsuarioId", usuario.UsuarioId));
+                        cmd.Parameters.Add(new SqlParameter("@Nombre", usuario.Nombre));
+                        cmd.Parameters.Add(new SqlParameter("@Apellidos", usuario.Apellidos));
+                        cmd.Parameters.Add(new SqlParameter("@Edad", usuario.Edad));
+                        cmd.Parameters.Add(new SqlParameter("@FechaNacimiento", usuario.Edad));
+                        cmd.Parameters.Add(new SqlParameter("@Matricula", usuario.Matricula));
+                        cmd.Parameters.Add(new SqlParameter("@Direccion", usuario.Direccion));
+                        cmd.Parameters.Add(new SqlParameter("@Activo", usuario.Activo));
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
 
-        //public DataTable DeleteUsuarios(Usuarios usuario)
-        //{
-        //    using (SqlConnection conn = new SqlConnection(ConnectionString))
-        //    {
-        //        try
-        //        {
-        //            using (SqlCommand cmd = new SqlCommand("sp_Usuarios_Delete", conn))
-        //            {
-        //                cmd.CommandTimeout = 0;
-        //                cmd.CommandType = CommandType.StoredProcedure;
-        //                //parametros de sql
-        //                cmd.Parameters.Add(new SqlParameter("@UsuarioId", usuario.UsuarioId));
-        //                SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //                DataTable dt = new DataTable();
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw ex;
-        //        }
-        //    }
-        //}
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
+        public DataTable DeleteUsuarios(int usuarioId)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_Usuarios_Delete", conn))
+                    {
+                        cmd.CommandTimeout = 0;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        //parametros de sql
+                        cmd.Parameters.Add(new SqlParameter("@UsuarioId", usuarioId));
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
     }
 }
