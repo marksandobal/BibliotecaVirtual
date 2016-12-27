@@ -15,7 +15,7 @@
         <div class="col-xs-6">
             <div class="form-inline">
                 <label for="label1">Categoria: </label>
-                <asp:DropDownList ID="ddlCategoria" runat="server" CssClass="form-control"></asp:DropDownList>
+                <asp:DropDownList ID="ddlCategoria" DataValueField="TipoLibroId" DataTextField="Clasificacion" runat="server" CssClass="form-control"></asp:DropDownList>
             </div>
         </div>
     </div>
@@ -29,30 +29,43 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-6"></div>
-    <div class="col-xs-3">
+    <div class="col-xs-3"></div>
+    <div class="col-xs-6">
         <div class="form-inline">
-            <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn-success"/>
-            <asp:Button ID="btnVerHistorial" runat="server" Text="Ver Historial" CssClass="btn-primary"/>
+            <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-success" OnClick="btnBuscar_Click" Style="margin-bottom:-30px"/>
+            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-danger" OnClick="btnCancelar_Click"/>
+            <asp:Button ID="btnHistorial" runat="server" Text="Ver Historial" CssClass="btn btn-primary" OnClick="btnHistorial_Click"/>            
         </div>
     </div>
 </div>
+    <br />
+    <br />
 <div class="table-responsive">
-        <asp:GridView ID="grvBusqueda" runat="server" AutoGenerateColumns="False" GridLines="None"  
-        AllowPaging="true" CssClass="table table-bordered table-hover" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"  
-        PageSize="7" DataKeyNames="Id">
-                <Columns>
-                    <asp:BoundField DataField="UsuarioId" HeaderText="Título" />
-                    <asp:BoundField DataField="Nombre" HeaderText="Autor" />
-                    <asp:BoundField DataField="Apellidos" HeaderText="Categoria" />
-                    <asp:BoundField DataField="Edad" HeaderText="Fecha de Publicación" />
-                    <asp:BoundField DataField="FechaNacimiento" HeaderText="En Existencia" />                         
-                </Columns>
-            <%--<RowStyle CssClass="cursor-pointer"/>
-                <AlternatingRowStyle BackColor="#FFFFFF" />
-                <SelectedRowStyle BackColor="DimGray" ForeColor="White" Font-Bold="true" />--%>
-                <HeaderStyle CssClass="gridHeader" BorderWidth="1px" BorderColor="#0F0501" Font-Bold="true"  BorderStyle="Solid" Height="30px" />                                       
+  <asp:GridView ID="grvLibros" runat="server" AutoGenerateColumns="False" GridLines="None"  
+    AllowPaging="false" CssClass="table table-bordered table-hover" PagerStyle-CssClass="" AlternatingRowStyle-CssClass="alt"  
+    PageSize="7" DataKeyNames="LibroId" >
+            <Columns>
+                <asp:BoundField DataField="LibroId" HeaderText="ID" HeaderStyle-HorizontalAlign="Center"/>
+                <asp:BoundField DataField="Titulo" HeaderText="Título" HeaderStyle-HorizontalAlign="Center"/>
+                <asp:BoundField DataField="Autor" HeaderText="Autor" HeaderStyle-HorizontalAlign="Center"/>
+                <asp:BoundField DataField="Edicion" HeaderText="Edición" HeaderStyle-HorizontalAlign="Center"/>
+                <asp:BoundField DataField="Editorial" HeaderText="Editorial" HeaderStyle-HorizontalAlign="Center"/>
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripción" HeaderStyle-HorizontalAlign="Center"/>
+                <asp:BoundField DataField="Clasificacion" HeaderText="Clasificación" HeaderStyle-HorizontalAlign="Center"/>
+                <asp:TemplateField>
+                    <HeaderTemplate>
+                        Editar
+                    </HeaderTemplate>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="lnkApartar" runat="server" OnClick="lnkApartar_Click" Text="Apartar" ToolTip="Apartar" CssClass="btn btn-success"></asp:LinkButton>                      
+                        </ItemTemplate>
+                </asp:TemplateField>                                             
+            </Columns>
+        <%--<RowStyle CssClass="cursor-pointer"/>
+            <AlternatingRowStyle BackColor="#FFFFFF" />
+            <SelectedRowStyle BackColor="DimGray" ForeColor="White" Font-Bold="true" />--%>
+            <HeaderStyle CssClass="gridHeader" BorderWidth="1px" BorderColor="#0F0501" Font-Bold="true"  BorderStyle="Solid" Height="30px" />                                       
         </asp:GridView>
-</div>
+    </div>
 </div>
 </asp:Content>

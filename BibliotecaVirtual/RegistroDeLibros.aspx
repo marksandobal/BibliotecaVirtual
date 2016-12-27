@@ -57,7 +57,7 @@
                     <div class="col-xs-12 col-md-12 col-lg-6">
                         <div id="divddlClasificacion" runat="server">
                         <label for="label">Clasificación: </label>
-                            <asp:DropDownList ID="ddlClasificación" runat="server" CssClass="form-control" DataTextField="Clasificacion" DataValueField="TipoLibroId"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlClasificacion" runat="server" CssClass="form-control" DataTextField="Clasificacion" DataValueField="TipoLibroId"></asp:DropDownList>
                         </div>
                     </div>
                 </div>

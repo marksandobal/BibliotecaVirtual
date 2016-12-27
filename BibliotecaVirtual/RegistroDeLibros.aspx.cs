@@ -48,9 +48,9 @@ namespace BibliotecaVirtual
         protected void LoadDDlClasificacion()
         {
             List<TipoLibros> list = new BizTipoLibros().GetClasificacion();
-            ddlClasificación.DataSource = list;
-            ddlClasificación.DataBind();
-            ddlClasificación.Items.Insert(0, new ListItem("Seleccione una clasificación"));
+            ddlClasificacion.DataSource = list;
+            ddlClasificacion.DataBind();
+            ddlClasificacion.Items.Insert(0, new ListItem("Seleccione una clasificación"));
         }
         //Guarda los datos en la Tabla Libros
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -68,11 +68,11 @@ namespace BibliotecaVirtual
                     libro.FechaPublicacion = Convert.ToDateTime(txtFechaPublicacion.Text);
                     libro.Editorial = txtEditorial.Text;
                     libro.Descripcion = txtArea.Text;
-                    libro.TipoLibroId = int.Parse(ddlClasificación.SelectedValue);
+                    libro.TipoLibroId = int.Parse(ddlClasificacion.SelectedValue);
                     BizLibros bizLibros = new BizLibros();
 
                     List<Libros> list = new BizLibros().GetLibros();
-                    var existe = list.Where(a => a.Titulo == libro.Titulo && a.Autor == libro.Autor && a.Edicion == libro.Edicion && a.Editorial == libro.Editorial && a.Clasificacion == Convert.ToString(ddlClasificación.SelectedItem)).ToList();
+                    var existe = list.Where(a => a.Titulo == libro.Titulo && a.Autor == libro.Autor && a.Edicion == libro.Edicion && a.Editorial == libro.Editorial && a.Clasificacion == Convert.ToString(ddlClasificacion.SelectedItem)).ToList();
                     if (existe.Count > 0)
                     {
                         divError.Visible = true;
@@ -147,7 +147,7 @@ namespace BibliotecaVirtual
             txtAutor.Text = libro.Autor;
             txtFechaPublicacion.Text = libro.FechaPublicacion.ToString("yyyy-MM-dd");
             txtEditorial.Text = libro.Editorial;
-            ddlClasificación.SelectedValue = Convert.ToString(libro.TipoLibroId);
+            ddlClasificacion.SelectedValue = Convert.ToString(libro.TipoLibroId);
             txtArea.Text = libro.Descripcion;
             btnGuardar.Text = "Actualizar";
         }
@@ -196,7 +196,7 @@ namespace BibliotecaVirtual
                 divDescripcion.Attributes.Remove("class");
             }
 
-            if (ddlClasificación.SelectedIndex == 0)
+            if (ddlClasificacion.SelectedIndex == 0)
             {
                 divddlClasificacion.Attributes.Add("Class", "alert has-error");
                 vacio = true;
