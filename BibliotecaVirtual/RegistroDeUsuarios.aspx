@@ -4,8 +4,11 @@
     </form>--%>
 <div class="container text-center">
     <h1>Registro De Usuarios</h1>
-    <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
     <br />
+    <div class="col-xs-12 col-md-12 col-lg-12" id="divError" runat="server">
+        <asp:Label ID="lblError" runat="server" Text="" Style="font-weight:bold"></asp:Label>
+        <asp:HiddenField ID="hdUsuarioId" runat="server" />
+    </div>
     <div class="row">
         <div class="form-group">
             <div class="col-xs-12 col-md-6 col-lg-6">

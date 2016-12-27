@@ -23,26 +23,36 @@ namespace BibliotecaVirtual
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            Usuarios list = new Usuarios();
+            bool vacio = ValidacionCampos();
+            if (vacio == false)
+            {
+                Usuarios list = new Usuarios();
 
-            list.Nombre = txtName.Text;
-            list.Apellidos = txtSurname.Text;
-            list.Matricula = txtEnrollment.Text;
-            list.Direccion = txtAddress.Text;
-            list.Edad = Convert.ToInt32(txtAge.Text);
-            list.Telefono = txtPhone.Text;
-            list.FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
-            list.Activo = chkActive.Checked;
+                list.Nombre = txtName.Text;
+                list.Apellidos = txtSurname.Text;
+                list.Matricula = txtEnrollment.Text;
+                list.Direccion = txtAddress.Text;
+                list.Edad = Convert.ToInt32(txtAge.Text);
+                list.Telefono = txtPhone.Text;
+                list.FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
+                list.Activo = chkActive.Checked;
 
-            BizUsuarios bizUsuaios = new BizUsuarios();
-            bizUsuaios.InsertUsuarios(list);
-            
+                BizUsuarios bizUsuaios = new BizUsuarios();
+                bizUsuaios.InsertUsuarios(list);
+
+            }
+            else
+            {
+                divError.Visible = true;
+                lblError.Text = "Algunos de los campos se encuentra vacio";
+                divError.Attributes.Add("class", "alert alert-danger");
+            }   
         }
 
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
             Usuarios list = new Usuarios();
-
+            list.UsuarioId = Convert.ToInt32(hdUsuarioId.Value);
             list.Nombre = txtName.Text;
             list.Apellidos = txtSurname.Text;
             list.Matricula = txtEnrollment.Text;
@@ -54,6 +64,7 @@ namespace BibliotecaVirtual
 
             BizUsuarios bizUsuarios = new BizUsuarios();
             bizUsuarios.UpdateUsuarios(list);
+            CargaGridUsuarios();
         }
         //carga de usuarios
         protected void CargaGridUsuarios()
@@ -68,6 +79,7 @@ namespace BibliotecaVirtual
         {
             int rowIndex = ((sender as LinkButton).Parent.Parent as GridViewRow).RowIndex;
             int usuariosId = (int)grvUsuarios.DataKeys[rowIndex]["UsuarioId"];
+            hdUsuarioId.Value = Convert.ToString(usuariosId);
             List<Usuarios> list = new BizUsuarios().GetUsuarios();
             var usuario = list.Where(a => a.UsuarioId == usuariosId).FirstOrDefault();
             //asignar valores a controles
@@ -83,7 +95,9 @@ namespace BibliotecaVirtual
 
         protected void grvUsuarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-
+            int id = Convert.ToInt32(grvUsuarios.DataKeys[e.RowIndex]["UsuarioId"]);
+            new BizUsuarios().DeleteUsuarios(id);
+            CargaGridUsuarios();
         }
         //validacion de campos que no esten vacios
         protected bool ValidacionCampos()
@@ -142,6 +156,15 @@ namespace BibliotecaVirtual
             else
             {
                 divFechaNacimiento.Attributes.Remove("class");
+            }
+            if (string.IsNullOrEmpty(txtAge.Text))
+            {
+                divEdad.Attributes.Add("class", "has-error");
+                vacio = true;
+            }
+            else
+            {
+                divEdad.Attributes.Remove("class");
             }
             return vacio;
         }
