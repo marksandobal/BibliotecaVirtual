@@ -34,7 +34,7 @@ namespace BibliotecaVirtual.BizConextions
             }
 
             return listlibros;
-        }
+        }//hacer
         public List<Libros> SearchLibros(string titulo, string autor,int? tipoLibroId)
         {
             DaoLibros dao = new DaoLibros();
@@ -45,7 +45,7 @@ namespace BibliotecaVirtual.BizConextions
             foreach (DataRow dr in dt.Rows)
             {
                 Libros libros = new Libros();
-                //							
+                //no entendi porque la "dr"							
                 libros.LibroId = (int)dr["LibroId"];
                 libros.Titulo = (string)dr["Titulo"];
                 libros.Autor = (string)dr["Autor"];

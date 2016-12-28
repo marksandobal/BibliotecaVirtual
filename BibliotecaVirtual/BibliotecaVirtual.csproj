@@ -213,6 +213,7 @@
       <DependentUpon>ApartadoDeLibros.aspx</DependentUpon>
     </Compile>
     <Compile Include="BizConextions\BizLibros.cs" />
+    <Compile Include="BizConextions\BizPrestamos.cs" />
     <Compile Include="BizConextions\BizTipoLibros.cs" />
     <Compile Include="BizConextions\BizUsuarios.cs" />
     <Compile Include="Busqueda.aspx.cs">
@@ -224,6 +225,7 @@
     </Compile>
     <Compile Include="Data\Conextion.cs" />
     <Compile Include="Data\DaoLibros.cs" />
+    <Compile Include="Data\DaoPrestamos.cs" />
     <Compile Include="Data\DaoTipoLibros.cs" />
     <Compile Include="Data\DaoUsuarios.cs" />
     <Compile Include="Inicio.aspx.cs">

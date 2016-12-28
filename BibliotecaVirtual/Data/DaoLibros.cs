@@ -9,7 +9,7 @@ using BibliotecaVirtual.Model;
 namespace BibliotecaVirtual.Data
 {
     public class DaoLibros
-    {
+    {//hacre en prestamos
         string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString();
         public DataTable SearchLibros(string titulo,string autor,int? tipoLibroId)
         {

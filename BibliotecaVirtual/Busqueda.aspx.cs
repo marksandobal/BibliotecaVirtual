@@ -18,7 +18,7 @@ namespace BibliotecaVirtual
                 CargarddlCategoria();
                 //SearchLibros(txtTitulo.Text,txtAutor.Text,null);
             }
-        }
+        }//hacer
         protected void SearchLibros(string titulo, string autor, int? tipoLibroId)
         {
             List<Libros> list = new BizLibros().SearchLibros(titulo, autor, tipoLibroId);
