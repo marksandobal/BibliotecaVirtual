@@ -32,7 +32,8 @@ namespace BibliotecaVirtual
                 txtMatricula.Enabled = false;
                 txtTelefono.Enabled = false;
                 txtDireccion.Enabled = false;
-                divMessage.Visible = false;                
+                divMessage.Visible = false;
+                CargaGridHistorial();
             }
            
         }
@@ -72,7 +73,13 @@ namespace BibliotecaVirtual
                 List<ApartadoDeLibrosAuxView> list = new BizApartadoDeLibros().ApartadoDeLibrosGetByUsuarioId(int.Parse(usuarioId));
                 grvLibros.DataSource = list;
                 grvLibros.DataBind();
-
+            }
+        }
+        protected void CargaGridHistorial()
+        {
+            if (usuarioId != null)
+            {
+                List<PrestamosAuxView> list = new BizPrestamos().GetPrestamos(int.Parse(usuarioId));
                 grvHistorial.DataSource = list;
                 grvHistorial.DataBind();
             }

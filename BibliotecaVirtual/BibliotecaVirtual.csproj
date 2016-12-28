@@ -247,6 +247,8 @@
     </Compile>
     <Compile Include="Model\ApartadoDeLibrosAuxView.cs" />
     <Compile Include="Model\Libros.cs" />
+    <Compile Include="Model\Prestamos.cs" />
+    <Compile Include="Model\PrestamosAuxView.cs" />
     <Compile Include="Model\TipoLibros.cs" />
     <Compile Include="Model\Util.cs" />
     <Compile Include="Model\Usuarios.cs" />

@@ -21,9 +21,38 @@ namespace BibliotecaVirtual.BizConextions
             {
                 Libros libros = new Model.Libros();
 
-                
+
             }
 
             return listLibros;
         }
+        /// <summary>
+        /// Obtengo Registros de la Tabla Prestamos por medio del ID del usuario
+        /// </summary>
+        /// <param name="usuarioId"></param>
+        /// <returns></returns>
+        public List<PrestamosAuxView> GetPrestamos(int usuarioId)
+        {
+            DaoPrestamos dao = new DaoPrestamos();
+            DataTable dt = dao.GetPrestamos(usuarioId);//Obtengo los datos del DaoPrestamos
+
+            List<PrestamosAuxView> listlibros = new List<PrestamosAuxView>();//Lista de Objetos
+
+            foreach (DataRow dr in dt.Rows)//Recorro las filas de la tabla que contiene los elementos obtenidos en el DAOPrestmaos
+            {
+                PrestamosAuxView libros = new PrestamosAuxView();	
+                //Asigno los valores de las filas a un objeto 				
+                libros.LibroId = (int)dr["LibroId"];
+                libros.Titulo = (string)dr["Titulo"];
+                libros.Autor = (string)dr["Autor"];
+                libros.Edicion = (string)dr["Edicion"];
+                libros.Editorial = (string)dr["Editorial"];
+                libros.Descripcion = (string)dr["Descripcion"];
+                libros.Clasificacion = (string)dr["Clasificacion"];
+                listlibros.Add(libros);//Agrego el objeto a una lista de Objetos
+            }
+
+            return listlibros; //Retorno la lista del objeto
+        }
+    }
 }

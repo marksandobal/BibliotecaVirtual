@@ -60,5 +60,34 @@ namespace BibliotecaVirtual.Data
                 }
             }
         }
+        /// <summary>
+        /// Obtengo los datos de la Tabla Prestamos con el sp "sp_Prestamos_Get" por medio del usuario
+        /// </summary>
+        /// <param name="usuarioId"></param>
+        /// <returns></returns>
+        public DataTable GetPrestamos(int usuarioId)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_Prestamos_Get", conn))
+                    {
+                        cmd.CommandTimeout = 0;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("@UsuarioId", usuarioId));
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
     }
 }
