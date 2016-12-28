@@ -171,7 +171,7 @@ h1.login-title {
         <br />
         <div class="form-inline">
             <label>Contraseña: </label>
-            <asp:TextBox ID="txtContraseña" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="txtContraseña" TextMode="Password" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <br />
         <asp:Button ID="btnLogin" runat="server" Text="Accesar" CssClass="login-button" OnClick="btnLogin_Click"/>

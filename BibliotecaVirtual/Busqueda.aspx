@@ -34,7 +34,6 @@
         <div class="form-inline">
             <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-success" OnClick="btnBuscar_Click" Style="margin-bottom:-30px"/>
             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-danger" OnClick="btnCancelar_Click"/>
-            <asp:Button ID="btnHistorial" runat="server" Text="Ver Historial" CssClass="btn btn-primary" OnClick="btnHistorial_Click"/>            
         </div>
     </div>
 </div>
@@ -43,7 +42,7 @@
 <div class="table-responsive">
   <asp:GridView ID="grvLibros" runat="server" AutoGenerateColumns="False" GridLines="None"  
     AllowPaging="false" CssClass="table table-bordered table-hover" PagerStyle-CssClass="" AlternatingRowStyle-CssClass="alt"  
-    PageSize="7" DataKeyNames="LibroId" >
+    PageSize="7" DataKeyNames="LibroId,Estado" >
             <Columns>
                 <asp:BoundField DataField="LibroId" HeaderText="ID" HeaderStyle-HorizontalAlign="Center"/>
                 <asp:BoundField DataField="Titulo" HeaderText="Título" HeaderStyle-HorizontalAlign="Center"/>
@@ -52,12 +51,13 @@
                 <asp:BoundField DataField="Editorial" HeaderText="Editorial" HeaderStyle-HorizontalAlign="Center"/>
                 <asp:BoundField DataField="Descripcion" HeaderText="Descripción" HeaderStyle-HorizontalAlign="Center"/>
                 <asp:BoundField DataField="Clasificacion" HeaderText="Clasificación" HeaderStyle-HorizontalAlign="Center"/>
+                                <asp:BoundField DataField="Estado" HeaderText="Status" HeaderStyle-HorizontalAlign="Center"/>
                 <asp:TemplateField>
                     <HeaderTemplate>
                         Editar
                     </HeaderTemplate>
                         <ItemTemplate>
-                            <asp:LinkButton ID="lnkApartar" runat="server" OnClick="lnkApartar_Click" Text="Apartar" ToolTip="Apartar" CssClass="btn btn-success"></asp:LinkButton>                      
+                            <asp:LinkButton ID="lnkApartar" runat="server" OnClick="lnkApartar_Click" Text="Apartar" ToolTip="Apartar" ></asp:LinkButton>                      
                         </ItemTemplate>
                 </asp:TemplateField>                                             
             </Columns>

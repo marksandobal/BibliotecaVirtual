@@ -13,6 +13,24 @@ namespace BibliotecaVirtual {
     public partial class ApartadoDeLibros {
         
         /// <summary>
+        /// divMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMessage;
+        
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
+        
+        /// <summary>
         /// txtNombre control.
         /// </summary>
         /// <remarks>
@@ -20,15 +38,6 @@ namespace BibliotecaVirtual {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
-        
-        /// <summary>
-        /// txtTitulo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTitulo;
         
         /// <summary>
         /// txtMatricula control.
@@ -40,15 +49,6 @@ namespace BibliotecaVirtual {
         protected global::System.Web.UI.WebControls.TextBox txtMatricula;
         
         /// <summary>
-        /// txtAutor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAutor;
-        
-        /// <summary>
         /// txtTelefono control.
         /// </summary>
         /// <remarks>
@@ -56,15 +56,6 @@ namespace BibliotecaVirtual {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
-        
-        /// <summary>
-        /// ddlClasificacion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlClasificacion;
         
         /// <summary>
         /// txtDireccion control.
@@ -76,6 +67,60 @@ namespace BibliotecaVirtual {
         protected global::System.Web.UI.WebControls.TextBox txtDireccion;
         
         /// <summary>
+        /// divTitulo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTitulo;
+        
+        /// <summary>
+        /// txtTitulo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTitulo;
+        
+        /// <summary>
+        /// divAutor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAutor;
+        
+        /// <summary>
+        /// txtAutor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAutor;
+        
+        /// <summary>
+        /// ddlClasificacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlClasificacion;
+        
+        /// <summary>
+        /// btnBusqueda control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBusqueda;
+        
+        /// <summary>
         /// btnAgregar control.
         /// </summary>
         /// <remarks>
@@ -85,6 +130,15 @@ namespace BibliotecaVirtual {
         protected global::System.Web.UI.WebControls.Button btnAgregar;
         
         /// <summary>
+        /// hdLibroId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdLibroId;
+        
+        /// <summary>
         /// grvLibros control.
         /// </summary>
         /// <remarks>
@@ -92,5 +146,14 @@ namespace BibliotecaVirtual {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grvLibros;
+        
+        /// <summary>
+        /// grvHistorial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grvHistorial;
     }
 }

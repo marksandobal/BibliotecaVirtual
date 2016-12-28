@@ -11,12 +11,14 @@ namespace BibliotecaVirtual
 {
     public partial class Busqueda : System.Web.UI.Page
     {
+        string usuarioId;
         protected void Page_Load(object sender, EventArgs e)
-        {           
+        {
+            usuarioId = (string)Session["UsuarioId"];          
             if (!IsPostBack)
             {
                 CargarddlCategoria();
-                //SearchLibros(txtTitulo.Text,txtAutor.Text,null);
+                SearchLibros(txtTitulo.Text,txtAutor.Text,null);
             }
         }
         protected void SearchLibros(string titulo, string autor, int? tipoLibroId)
@@ -24,6 +26,24 @@ namespace BibliotecaVirtual
             List<Libros> list = new BizLibros().SearchLibros(titulo, autor, tipoLibroId);
             grvLibros.DataSource = list;
             grvLibros.DataBind();
+
+            foreach (GridViewRow rw in grvLibros.Rows)
+            {
+                string status = (string)grvLibros.DataKeys[rw.RowIndex]["Estado"];
+                LinkButton btn = (rw.FindControl("lnkApartar") as LinkButton);
+
+                if (status == "Disponible")
+                {
+                    btn.Attributes.Add("Class", "btn btn-success");
+                    btn.Text = "Prestar";
+                }
+                else {
+                    btn.Attributes.Add("Class", "btn btn-warning");
+                    btn.Text = "Apartar";
+                }
+
+            }
+
         }
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -41,8 +61,15 @@ namespace BibliotecaVirtual
         {
             int rowIndex = ((sender as LinkButton).Parent.Parent as GridViewRow).RowIndex;
             int libroId = (int)grvLibros.DataKeys[rowIndex]["LibroId"];
+            string status = (string)grvLibros.DataKeys[rowIndex]["Estado"];
 
-            Response.Redirect("ApartadoDeLibros.aspx?id=" + libroId);
+            if (status == "Disponible")
+            {
+                Response.Redirect("Prestamos.aspx?id=" + libroId);
+            }
+            else {
+                Response.Redirect("ApartadoDeLibros.aspx?id=" + libroId);
+            }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -50,10 +77,6 @@ namespace BibliotecaVirtual
             txtTitulo.Text = string.Empty;
             txtAutor.Text = string.Empty;
             SearchLibros(txtTitulo.Text, txtAutor.Text, null);
-        }
-        protected void btnHistorial_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

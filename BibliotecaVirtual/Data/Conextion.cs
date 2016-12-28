@@ -9,7 +9,7 @@ namespace BibliotecaVirtual.Data
     {
         public string BiBliotecaVirtualConnectionString()
         {
-            string conection ="Pepe";
+            string conection ="Arturo";
 
             string ConnectionString;
             if (conection == "Arturo")

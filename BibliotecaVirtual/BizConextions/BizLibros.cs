@@ -55,6 +55,7 @@ namespace BibliotecaVirtual.BizConextions
                 libros.Descripcion = (string)dr["Descripcion"];
                 libros.TipoLibroId = (int)dr["TipoLibroId"];
                 libros.Clasificacion = (string)dr["Clasificacion"];
+                libros.Estado = (string)dr["Estado"];
                 listlibros.Add(libros);
             }
 
