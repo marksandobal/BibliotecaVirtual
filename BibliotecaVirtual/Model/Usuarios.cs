@@ -18,5 +18,7 @@ namespace BibliotecaVirtual.Model
         public string Direccion { get; set; }
         public string Telefono { get; set; }
         public bool Activo { get; set; }
+
+        public int RolId { get; set; }
     }
 }

@@ -78,5 +78,20 @@ namespace BibliotecaVirtual
             txtAutor.Text = string.Empty;
             SearchLibros(txtTitulo.Text, txtAutor.Text, null);
         }
+        protected void grvLibros_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+            if (e.Row.Cells[7].Text == "En Prestamo")
+            {
+                e.Row.Cells[7].Attributes.Add("Class", "text-warning");
+                e.Row.Cells[7].Font.Bold = true;
+                //e.Row.Cells[7].BackColor = System.Drawing.Color.FromName("#f0ad4e");
+            }
+            else if(e.Row.Cells[7].Text == "Disponible")
+            {
+                e.Row.Cells[7].Attributes.Add("Class", "text-success");
+                e.Row.Cells[7].Font.Bold = true;
+            }
+        }
     }
 }

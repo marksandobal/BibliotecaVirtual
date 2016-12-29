@@ -29,6 +29,7 @@ namespace BibliotecaVirtual
                 if (usuario[0].Activo == true)
                 {
                     Session["UsuarioId"] = usuario[0].UsuarioId.ToString();
+                    Session["RolId"] = usuario[0].RolId.ToString();
 
                     IPHostEntry host;
                     string localIP = "";

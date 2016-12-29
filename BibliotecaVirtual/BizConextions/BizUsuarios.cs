@@ -50,6 +50,7 @@ namespace BibliotecaVirtual.Biz
                 users.NombreUsuario = (string)dr["NombreUsuario"];
                 users.Contrasena = (string)dr["Contrasena"];
                 users.Activo = (bool)dr["Activo"];
+                users.RolId = (int)dr["RolId"];
                 userList.Add(users);
             }
 

@@ -12,9 +12,10 @@ namespace BibliotecaVirtual
 {
     public partial class RegistroDeLibros : System.Web.UI.Page
     {
+        string rolId;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+             rolId = (string)Session["RolId"];
             if (!IsPostBack)
             {
                 txtFechaPublicacion.Text = DateTime.Today.ToString("yyyy-MM-dd");
@@ -25,6 +26,10 @@ namespace BibliotecaVirtual
                     LimpiarCampos();
                 }
                 hdLibroId.Value = "0";
+                if (rolId == "2")
+                {
+                    grvLibros.Columns[8].Visible = false;
+                }
             }          
         }
         //Limpia los campos del formulario

@@ -43,25 +43,26 @@
         </div>
         <div id="stuck_container" class="stuck_container">
           <div class="container">
+                <%--<asp:Literal ID="ltMenu" runat="server"></asp:Literal>--%>
             <nav class="nav">
               <ul data-type="navbar" class="sf-menu">
                 <li><a href="Inicio.aspx">Inicio</a>
                 </li>
-                <li><a href="index-2.html">Registros</a>
+                <li runat="server" id="liMenuRegistros"><a href="#">Registros</a>
                   <ul>
                     <li><a href="RegistroDeLibros.aspx">Registro De Libros </a></li>
                     <li><a href="RegistroDeUsuarios.aspx">Registro De Usuarios</a></li>
                     <li><a href="RegistroTipoDeLibro.aspx">Registro Clasificación Libros</a></li>
                   </ul>
                 </li>
-                <li><a href="index-3.html">Serviciós</a>
+                <li runat="server" id="liMenuServicios"><a href="#">Serviciós</a>
                     <ul>
                         <li><a href="ApartadoDeLibros.aspx">Apartado de Libros</a></li>
                         <li><a href="Busqueda.aspx">Busqueda de Libros</a></li>
                         <li><a href="Prestamos.aspx">Prestamos de Libros</a></li>
                     </ul>
                 </li>
-                <li><a href="index-1.html">Acerca De</a>
+                <li><a href="#">Acerca De</a>
                   <ul>
                     <li><a href="#">Lorem ipsum dolor</a></li>
                     <li><a href="#">Conse ctetur adipisicing</a></li>
@@ -76,7 +77,7 @@
                     <li><a href="#">Ut enim ad minim</a></li>
                   </ul>
                 </li>
-                <li><a href="index-4.html">Contactos</a>
+                <li><a href="#">Contactos</a>
                 </li>
               </ul>
             </nav>

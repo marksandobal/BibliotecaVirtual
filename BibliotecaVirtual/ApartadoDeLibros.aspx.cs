@@ -108,10 +108,10 @@ namespace BibliotecaVirtual
         }
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            int libroId = Convert.ToInt32(hdLibroId.Value);
             bool vacio = validacion();
             if (vacio == false)
             {
+                int libroId = Convert.ToInt32(hdLibroId.Value);
                 List<ApartadoDeLibrosAuxView> list = new BizApartadoDeLibros().ApartadoDeLibrosGetByUsuarioId(int.Parse(usuarioId));
                 var existe = list.Where(a => a.LibroId == libroId).ToList();
                 if (existe.Count > 0)
@@ -149,6 +149,11 @@ namespace BibliotecaVirtual
             if (string.IsNullOrEmpty(txtAutor.Text))
             {
                 divAutor.Attributes.Add("Class", "alert has-error");
+                vacio = true;
+            }
+            if (ddlClasificacion.SelectedIndex == 0)
+            {
+                divddlClasificacion.Attributes.Add("Class", "alert has-error");
                 vacio = true;
             }
             return vacio;
