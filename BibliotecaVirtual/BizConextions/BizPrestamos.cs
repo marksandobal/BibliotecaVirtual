@@ -54,5 +54,10 @@ namespace BibliotecaVirtual.BizConextions
 
             return listlibros; //Retorno la lista del objeto
         }
+        //sin terminar tengo dudas
+        public void InsertDatosPrestamo(ApartadoDeLibrosAuxView datos)
+        {
+            new DaoPrestamos().GetPrestamos();
+        }
     }
 }

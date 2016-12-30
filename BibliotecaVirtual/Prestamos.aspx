@@ -42,11 +42,11 @@
                 AllowPaging="true" CssClass="table table-bordered table-hover" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"  
                 PageSize="7" DataKeyNames="Id">
                         <Columns>
-                            <asp:BoundField DataField="UsuarioId" HeaderText="Título" />
+                            <asp:BoundField DataField="Titulo" HeaderText="Título" />
                             <asp:BoundField DataField="Nombre" HeaderText="Autor" />
-                            <asp:BoundField DataField="Apellidos" HeaderText="Categoria" />
-                            <asp:BoundField DataField="Edad" HeaderText="Fecha de Publicación" />
-                            <asp:BoundField DataField="FechaNacimiento" HeaderText="En Existencia" />                         
+                            <asp:BoundField DataField="Categoria" HeaderText="Categoria" />
+                            <asp:BoundField DataField="Publicacion" HeaderText="Fecha de Publicación" />
+                            <asp:BoundField DataField="Disponibilidad" HeaderText="En Existencia" />                         
                         </Columns>
                     <%--<RowStyle CssClass="cursor-pointer"/>
                         <AlternatingRowStyle BackColor="#FFFFFF" />
@@ -56,9 +56,8 @@
         </div>
             <br />
             <div class="row">
-                <asp:Button ID="Button1" runat="server" Text="Guardar" CssClass="btn-primary"/>
-                <asp:Button ID="Button2" runat="server" Text="Cancelar" CssClass="btn-success"/>
-                <asp:Button ID="Button3" runat="server" Text="Enviar" CssClass="btn-danger"/>
+                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="btnGuardar_Click"/>
+                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-danger" OnClick="btnCancelar_Click"/>
             </div>
         </div>
 </asp:Content>
