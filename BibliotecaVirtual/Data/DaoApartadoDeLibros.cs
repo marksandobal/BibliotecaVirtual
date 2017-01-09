@@ -5,12 +5,14 @@ using System.Web;
 using BibliotecaVirtual.Model;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 namespace BibliotecaVirtual.Data
 {
     public class DaoApartadoDeLibros
     {
-        string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString();
+        string ConnectionString = ConfigurationManager.ConnectionStrings["Arturo"].ConnectionString;
+        //string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString();
         public DataTable ApartadoDeLibrosGetByUserId(int usuarioId)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))

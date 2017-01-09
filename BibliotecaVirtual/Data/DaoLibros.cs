@@ -5,12 +5,14 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using BibliotecaVirtual.Model;
+using System.Configuration;
 
 namespace BibliotecaVirtual.Data
 {
     public class DaoLibros
     {//hacre en prestamos
-        string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString();
+        string ConnectionString = ConfigurationManager.ConnectionStrings["Arturo"].ConnectionString;
+        //string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString();
         public DataTable SearchLibros(string titulo,string autor,int? tipoLibroId)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))

@@ -5,12 +5,14 @@ using System.Data;
 using System.Web;
 using BibliotecaVirtual.Model;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace BibliotecaVirtual.Data
 {
     public class DaoPrestamos
     {
-        string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString();
+        string ConnectionString = ConfigurationManager.ConnectionStrings["Arturo"].ConnectionString;
+        //string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString();
         public DataTable SearchLibros(string titulo, string autor, int? tipoLibroId)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
@@ -76,6 +78,32 @@ namespace BibliotecaVirtual.Data
                         cmd.CommandTimeout = 0;
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.Add(new SqlParameter("@UsuarioId", usuarioId));
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+        public DataTable GenerateReport(DateTime fechaInicio, DateTime fechaFinal, bool porFechaPrestamo)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_Prestamos_Report", conn))
+                    {
+                        cmd.CommandTimeout = 0;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("@FechaInicio", fechaInicio));
+                        cmd.Parameters.Add(new SqlParameter("@FechaTermino", fechaFinal));
+                        cmd.Parameters.Add(new SqlParameter("@FechaPrestamo", porFechaPrestamo));
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
 

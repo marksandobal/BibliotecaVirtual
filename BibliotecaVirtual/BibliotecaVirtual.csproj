@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\Downloads\itextSharp\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net40\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -148,6 +151,7 @@
     <Content Include="images\icons\edit32.png" />
     <Content Include="images\icons\edit48.png" />
     <Content Include="images\icons\eliminar.png" />
+    <Content Include="images\logo.PNG" />
     <Content Include="images\page-1_img01.jpg" />
     <Content Include="images\page-1_img02.jpg" />
     <Content Include="images\page-1_img03.jpg" />
@@ -202,6 +206,8 @@
     <Content Include="RegistroDeLibros.aspx" />
     <Content Include="RegistroDeUsuarios.aspx" />
     <Content Include="RegistroTipoDeLibro.aspx" />
+    <Content Include="ReportePrestamos.aspx" />
+    <Content Include="ReportePrueba.aspx" />
     <Content Include="Session.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -225,7 +231,6 @@
     <Compile Include="Busqueda.aspx.designer.cs">
       <DependentUpon>Busqueda.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Data\Conextion.cs" />
     <Compile Include="Data\DaoApartadoDeLibros.cs" />
     <Compile Include="Data\DaoLibros.cs" />
     <Compile Include="Data\DaoPrestamos.cs" />
@@ -281,6 +286,20 @@
     <Compile Include="RegistroTipoDeLibro.aspx.designer.cs">
       <DependentUpon>RegistroTipoDeLibro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ReportePrestamos.aspx.cs">
+      <DependentUpon>ReportePrestamos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportePrestamos.aspx.designer.cs">
+      <DependentUpon>ReportePrestamos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportePrueba.aspx.cs">
+      <DependentUpon>ReportePrueba.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportePrueba.aspx.designer.cs">
+      <DependentUpon>ReportePrueba.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Session.aspx.cs">
       <DependentUpon>Session.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -310,7 +329,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Files\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

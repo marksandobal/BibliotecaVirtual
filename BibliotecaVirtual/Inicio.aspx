@@ -43,7 +43,6 @@
         </div>
         <div id="stuck_container" class="stuck_container">
           <div class="container">
-                <%--<asp:Literal ID="ltMenu" runat="server"></asp:Literal>--%>
             <nav class="nav">
               <ul data-type="navbar" class="sf-menu">
                 <li><a href="Inicio.aspx">Inicio</a>
@@ -60,6 +59,13 @@
                         <li><a href="ApartadoDeLibros.aspx">Apartado de Libros</a></li>
                         <li><a href="Busqueda.aspx">Busqueda de Libros</a></li>
                         <li><a href="Prestamos.aspx">Prestamos de Libros</a></li>
+                    <li><a href="#">Reportes
+                        <ul>
+                          <li><a href="ReportePrestamos.aspx">Reporte Prestamos</a></li>
+                          <li><a href="#">Reporte Apartado de Libros</a></li>
+                          <li><a href="#">Reporte Cantidad de libros</a></li>
+                        </ul></a>
+                    </li>
                     </ul>
                 </li>
                 <li><a href="#">Acerca De</a>
@@ -71,7 +77,8 @@
                           <li><a href="#">Lorem ipsum</a></li>
                           <li><a href="#">Conse adipisicing</a></li>
                           <li><a href="#">Sit amet dolore</a></li>
-                        </ul></a></li>
+                        </ul></a>
+                    </li>
                     <li><a href="#">Incididunt ut labore</a></li>
                     <li><a href="#">Et dolore magna</a></li>
                     <li><a href="#">Ut enim ad minim</a></li>

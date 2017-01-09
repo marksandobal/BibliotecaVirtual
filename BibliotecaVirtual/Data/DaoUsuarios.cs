@@ -6,11 +6,14 @@ using System.Data;
 using System.Data.SqlClient;
 using BibliotecaVirtual.Data;
 using BibliotecaVirtual.Model;
+using System.Configuration;
+
 namespace BibliotecaVirtual.Data
 {
     public class DaoUsuarios
     {    //Conexión SQL
-        string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString();
+        //string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString();
+        string ConnectionString = ConfigurationManager.ConnectionStrings["Arturo"].ConnectionString;
         //Metodo Get
         public DataTable GetUsuarios()
         {

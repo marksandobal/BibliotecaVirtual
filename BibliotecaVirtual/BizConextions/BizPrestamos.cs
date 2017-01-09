@@ -57,7 +57,33 @@ namespace BibliotecaVirtual.BizConextions
         //sin terminar tengo dudas
         public void InsertDatosPrestamo(ApartadoDeLibrosAuxView datos)
         {
-            new DaoPrestamos().GetPrestamos();
+           // new DaoPrestamos().GetPrestamos();
+        }
+
+        public List<PrestamosAuxView> GenerateReport(DateTime fechaInicio, DateTime fechaFinal, bool porFechaPrestamo)
+        {
+            DaoPrestamos dao = new DaoPrestamos();
+            DataTable dt = dao.GenerateReport(fechaInicio,fechaFinal,porFechaPrestamo);
+
+            List<PrestamosAuxView> listlibros = new List<PrestamosAuxView>();//Lista de Objetos
+
+            foreach (DataRow dr in dt.Rows)//Recorro las filas de la tabla que contiene los elementos obtenidos en el DAOPrestmaos
+            {
+                PrestamosAuxView libros = new PrestamosAuxView();
+                //Asigno los valores de las filas a un objeto 				
+                libros.LibroId = (int)dr["LibroId"];
+                libros.Titulo = (string)dr["Titulo"];
+                libros.Autor = (string)dr["Autor"];
+                libros.Edicion = (string)dr["Edicion"];
+                libros.Editorial = (string)dr["Editorial"];
+                libros.Descripcion = (string)dr["Descripcion"];
+                libros.Clasificacion = (string)dr["Clasificacion"];
+                libros.FechaPrestamo = (DateTime)dr["FechaPrestamo"];
+                libros.FechaVencimiento = (DateTime)dr["FechaVencimiento"];
+                listlibros.Add(libros);//Agrego el objeto a una lista de Objetos
+            }
+
+            return listlibros; //Retorno la lista del objeto
         }
     }
 }

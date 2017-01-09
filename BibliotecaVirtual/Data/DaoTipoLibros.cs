@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace BibliotecaVirtual.Data
 {
     public class DaoTipoLibros
     {
-        string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString();
-
+        //string ConnectionString = new Conextion().BiBliotecaVirtualConnectionString();
+        string ConnectionString = ConfigurationManager.ConnectionStrings["Arturo"].ConnectionString;
         public DataTable GetClasificacionDeLibros()
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
